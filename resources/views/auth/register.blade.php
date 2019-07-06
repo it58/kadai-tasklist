@@ -1,4 +1,4 @@
-@include('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
@@ -27,6 +27,6 @@
            {!! Form::password('password_confirmation' , ['class' => 'form-control']) !!}
        </div>
        
-       {!! Form::submit('Sign up' , ['class' => 'btn btn-primary btn-block']) !!}
+       {!! Form::submit('Sign up' , ['class' => 'btn btn-primary btn-block mt-4']) !!}
     {!! Form::close() !!}
 @endsection
