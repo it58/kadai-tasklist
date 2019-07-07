@@ -2,23 +2,25 @@
 
 @section('content')
 
-    <h1>id = {{ $abouttask->id }} のタスク詳細ページ</h1>
+    <h1>id = {{ $task->id }} のタスク詳細ページ</h1>
     
     <table class = "table table-bordered">
         <tr>
             <th>id</th>
             <th>status</th>
-            <th> {{ $abouttask->id }} </th>
+            <th>タスク</th> 
         </tr>
         <tr>
-            <th>タスク</th>
-            <th> {{ $abouttask->status }} </th>
-            <th> {{ $abouttask->content }} </th>
+            <th> {{ $task->id }} </th>
+            <th> {{ $task->status }} </th>
+            <th> {{ $task->content }} </th>
         </tr>
     </table>
     
-    {!! link_to_route('tasks.edit', 'このタスクを編集', ['id' => $abouttask->id], ['class' => 'btn btn-light']) !!}
-    {!! Form::model($abouttask, ['route' => ['tasks.destroy', $abouttask->id], 'method' => 'delete']) !!}
-        {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
-    {!! Form::close() !!}
+    @if(Auth::id() === $task->user_id)
+        {!! link_to_route('tasks.edit', 'このタスクを編集', ['id' => $task->id], ['class' => 'btn btn-light']) !!}
+        {!! Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}
+            {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
+        {!! Form::close() !!}
+    @endif
 @endsection

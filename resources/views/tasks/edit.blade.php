@@ -3,11 +3,11 @@
 @section('content')
 
     
-    <h1>id: {{ $edittask->id }}のタスク編集ページ</h1>
+    <h1>id: {{ $task->id }}のタスク編集ページ</h1>
     
     <div class = "row">
         <div class = "col-6">
-            {!! Form::model( $edittask, [ 'route' => [ 'tasks.update', $edittask->id], 'method' => 'put' ]) !!}
+            {!! Form::model( $task, [ 'route' => [ 'tasks.update', $task->id], 'method' => 'put' ]) !!}
                 
                 <div class = "form-group" >
                     {!! Form::label('status', 'ステータス:') !!}
